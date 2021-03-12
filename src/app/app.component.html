@@ -1,4 +1,10 @@
 <hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+
+<form #demoForm="ngForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    [(ngModel)]="modelFirstName"
+    #name="ngModel"
+    name="firstName"
+  />
+</form>
