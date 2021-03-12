@@ -1,10 +1,37 @@
 <hello name="{{ name }}"></hello>
 
-<form #demoForm="ngForm" (ngSubmit)="onSubmit()">
+<form #demoForm="ngForm" (ngSubmit)="onSubmit(demoForm)">
   <input
     type="text"
     [(ngModel)]="modelFirstName"
-    #name="ngModel"
+    #firstName="ngModel"
     name="firstName"
+    required
+    minlength="5"
   />
+
+  <button type="submit" [disabled]="!demoForm.valid">Save</button>
 </form>
+
+Pristine {{demoForm.pristine}} unchanged <br>
+Dirty {{demoForm.dirty}} changed<br>
+
+
+
+touched {{demoForm.touched}} changed <br>
+untouched {{demoForm.untouched}} unchanged <br>
+
+{{demoForm.value | json}}
+
+
+<br>
+
+{{demoForm.valid}}
+
+<br>
+{{firstName.errors?.required}}
+
+
+<br>
+Hello
+{{firstName.errors?.minlength | json}}

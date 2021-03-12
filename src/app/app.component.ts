@@ -1,4 +1,5 @@
 import { Component, VERSION } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "my-app",
@@ -7,8 +8,14 @@ import { Component, VERSION } from "@angular/core";
 })
 export class AppComponent {
   name = "Angular Template form";
-  modelFirstName;
-  
+  _modelFirstName;
 
-  onSubmit() {}
+  onSubmit(form: NgForm) {
+    console.log(form);
+  }
+
+  set modelFirstName(val: string) {
+    this._modelFirstName = val;
+    console.log(this._modelFirstName);
+  }
 }
