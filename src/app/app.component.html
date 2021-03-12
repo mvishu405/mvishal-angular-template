@@ -3,7 +3,7 @@
 <form #demoForm="ngForm" (ngSubmit)="onSubmit(demoForm)">
   <input
     type="text"
-    [(ngModel)]="modelFirstName"
+    [(ngModel)]="customer.firstName"
     #firstName="ngModel"
     name="firstName"
     required
